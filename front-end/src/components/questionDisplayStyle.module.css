@@ -1,0 +1,17 @@
+.questionDisplay{
+    display: flexbox;
+    flex-wrap: wrap;
+    align-content: space-between;
+    overflow: scroll;
+    background-color: greenyellow;
+    
+}
+.titleStyle{
+    color:white;
+    background-color: green;
+    border-radius: 25px;
+    width:fit-content;
+    padding: 10px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+
+}

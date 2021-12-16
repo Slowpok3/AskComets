@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Card from './card';
 import CreateQuestion from './createQuestion';
+import styles from './questionDisplayStyle.module.css';
 
 
 
@@ -19,7 +20,7 @@ class Display extends React.Component{
     
     componentDidMount(){
       // todo: figure out how to get a specific amount of elements to display
-      var numberOfElements = '5';
+      var numberOfElements = '18';
   
       axios.get('/Questions/' + (numberOfElements))
       .then(res => {
@@ -47,7 +48,7 @@ class Display extends React.Component{
 
         const link = "./Question/"+postId
         
-        array.push( <a href ={link}> <Card postTitle = {postTitle} postBody = {postBody} userName= {userName}  > </Card> </a>);
+        array.push( <a href ={link} className={styles.content}> <Card postTitle = {postTitle} postBody = {postBody} userName= {userName}  > </Card> </a>);
       }
   
       
@@ -68,15 +69,16 @@ class Display extends React.Component{
   
       
       return(
-        <div>
-          <h1>ASKCOMETS</h1>
+        <div className= {styles.questionDisplay}>
+          <h1 className={styles.titleStyle}>ASKCOMETS</h1>
   
   
           {this.getCardArray()}
-          <CreateQuestion />
+          {/* <CreateQuestion /> */}
           
   
         </div>
+        
         
       )
     }

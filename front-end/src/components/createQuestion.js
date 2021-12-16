@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import styles from './createQuestionStyle.module.css'
 
 class CreateQuestion extends React.Component{
     constructor(props){
@@ -60,32 +61,38 @@ class CreateQuestion extends React.Component{
   
     render() {
       return (
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Post Title:
-            <input type="text" value={this.state.postTitleValue} onChange={this.handleTitleChange} />
-          </label>
-  
-          <label>
-            Post Body:
-            <input type="text" value={this.state.postBodyValue} onChange={this.handleBodyChange} />
-          </label>
-  
-  
-          <label>
-            User Name:
-            <input type="text" value={this.state.userNameValue} onChange={this.handleNameChange} />
-          </label>
-  
-  
-          <label>
-            Class:
-            <input type="text" value={this.state.classValue} onChange={this.handleClassChange} />
-          </label>
-  
-  
-          <input type="submit" value="Submit" />
-        </form>
+        <div className= {styles.createQuestion}>
+
+        
+          <form onSubmit={this.handleSubmit} >
+            <label>Ask a Question: </label>
+
+            <label>
+              Post Title:
+              <input type="text" value={this.state.postTitleValue} onChange={this.handleTitleChange} />
+            </label>
+    
+            <label>
+              Post Body:
+              <input type="text" value={this.state.postBodyValue} onChange={this.handleBodyChange} />
+            </label>
+    
+    
+            <label>
+              User Name:
+              <input type="text" value={this.state.userNameValue} onChange={this.handleNameChange} />
+            </label>
+    
+    
+            <label>
+              Class:
+              <input type="text" value={this.state.classValue} onChange={this.handleClassChange} />
+            </label>
+    
+    
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
       );
     }
   }

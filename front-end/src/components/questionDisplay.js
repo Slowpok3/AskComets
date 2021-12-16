@@ -30,7 +30,7 @@ export default function QuestionDisplay(){
     }else{
         
         return (
-            <div>
+            <div >
                 <a href = "/"><button>Back</button></a>
                 <h1>Question Id: {id}</h1>
                 <h1>{questionDatas.data[0].postTitle}</h1>

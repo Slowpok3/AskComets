@@ -7,7 +7,8 @@ import {
 import Display from './components/display';
 import Card from './components/card';
 import QuestionDisplay from './components/questionDisplay';
-
+import './App.css';
+import CreateQuestion from './components/createQuestion';
 
 
 
@@ -20,7 +21,7 @@ function App() {
       <Routes>
         <Route 
           path = "/"
-          element = {<Display />}
+          element = {<div><Display /> <CreateQuestion /> </div>}
           />
         <Route 
           path = "/Question/:id"
