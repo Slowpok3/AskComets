@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './cardStyle.module.css';
+import styles from './styling/cardStyle.module.css';
 
 class Card extends React.Component{
     constructor(props){

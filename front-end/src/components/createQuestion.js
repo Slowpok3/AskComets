@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import styles from './createQuestionStyle.module.css'
+import styles from './styling/createQuestionStyle.module.css'
 
 class CreateQuestion extends React.Component{
     constructor(props){

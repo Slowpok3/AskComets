@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useParams } from 'react-router';
 import CreateAnswer from './createAnswer';
 import AnswerDisplay from './answerDisplay';
+import styles from './styling/questionPageStyles.module.css';
 
 export default function QuestionDisplay(){
     const {id} = useParams();
@@ -17,31 +18,38 @@ export default function QuestionDisplay(){
         axios.get('/Questions/1', {params: {postId: id}}).then(res => {
             setQuestionDatas(res);
             setLoaded(true);
+            
         }).catch(err =>{
             console.log(err);
           })
         
         
         
-    }, [page]);
+    }, []);
 
     if (!loaded){
         return (<h1>loading</h1>)
     }else{
         
         return (
-            <div >
+            <div className={styles.pageStyle}>
+
                 <a href = "/"><button>Back</button></a>
-                <h1>Question Id: {id}</h1>
-                <h1>{questionDatas.data[0].postTitle}</h1>
-                <h1>{questionDatas.data[0].postBody}</h1>
-                <h1>posted by {questionDatas.data[0].userName}</h1>
-                <h1>Class: {questionDatas.data[0].className}</h1>
-                {/* <button onClick = {tryApi}>reload</button> */}
-                <CreateAnswer postId = {id}></CreateAnswer>
-                <AnswerDisplay postId = {id} />
+                <div className={styles.questionData}>
+                    
+                    <h1>{questionDatas.data[0].postTitle}</h1>
+                    <h3>{questionDatas.data[0].postBody}</h3>
+                    <h4>posted by {questionDatas.data[0].userName}</h4>
+                    <h4>Class: {questionDatas.data[0].className}</h4>
+                    {/* <button onClick = {tryApi}>reload</button> */}
+                </div>
+                <div className={styles.answeringStyle}>
+                    <CreateAnswer postId = {id}></CreateAnswer>
+                    <AnswerDisplay postId = {id} />
+                </div>
                
             </div>
+
             
         )
     }

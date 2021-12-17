@@ -9,6 +9,8 @@ import Card from './components/card';
 import QuestionDisplay from './components/questionDisplay';
 import './App.css';
 import CreateQuestion from './components/createQuestion';
+import SearchDisplay from './components/searchDisplay';
+import SearchBar from './components/searchbar';
 
 
 
@@ -21,11 +23,21 @@ function App() {
       <Routes>
         <Route 
           path = "/"
-          element = {<div><Display /> <CreateQuestion /> </div>}
+          element = {
+            <div>
+              <Display /> 
+              <CreateQuestion />
+            </div>
+            }
           />
         <Route 
           path = "/Question/:id"
           element = {<QuestionDisplay />}
+        />
+        <Route 
+          path = "/SearchResults/:keywords"
+          element = {<SearchDisplay />}
+        
         />
       </Routes>
     </Router>

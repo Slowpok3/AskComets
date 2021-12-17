@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 import CreateAnswer from './createAnswer';
 import { render } from '@testing-library/react';
 import AnswerCard from './answerCard';
-
+import styles from './styling/questionPageStyles.module.css';
 
 export default function AnswerDisplay(props){
     const [answers, setAnswers] = useState({});

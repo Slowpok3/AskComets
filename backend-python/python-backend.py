@@ -78,19 +78,31 @@ class Questions (Resource):
 
 	@marshal_with(resource_fields)
 	def get(self, numElements):
-		print("hellow world")
+		
 		args = getQuestionArgs.parse_args()
+		print(args['postTitle'])
 		result = postModel.query.all()
 
-		
-
-	
-		if (str(args['postId']) != 'None'):
+		if (str(args['postTitle']) != 'None'):
+			x = "%"+args['postTitle']+"%"
+			result = db.session.query(postModel).filter(postModel.postTitle.like(x))
+			#result = postModel.query.filter(postModel.postTitle.like(x)).all()
+			print(result)
+		elif (str(args['postId']) != 'None'):
 			result=postModel.query.filter_by(postId= args['postId']).all()
 		else:
 			result = postModel.query.all()
 		
 		 #queries the database for the title of the post
+		zooga = []
+		
+		if (numElements == 1):
+			print(numElements)
+			for i in result:
+				print(i)
+				zooga.append(i)
+			return zooga
+
 
 		booga = [];
 		for i in range(numElements):

@@ -30,3 +30,9 @@ input:focus{
     background-color: turquoise;
     border: 0px transparent;
 }
+button{
+    border-radius: 25px;
+    border: 0px transparent;
+    background-color: thistle;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}

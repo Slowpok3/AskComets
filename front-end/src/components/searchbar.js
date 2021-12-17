@@ -1,45 +1,41 @@
-import * as React from 'react';
-import { useEffect, useState } from 'react';
+import React, { Component, useState } from 'react';
+import { useEffect } from 'react';
 import axios from 'axios';
-export default function CreateAnswer(props){
-    
-    const [answerBody, setAnswerBody] = useState("");
-    
+import { useParams } from 'react-router';
+import { useNavigate } from "react-router-dom";
 
+
+
+export default function SearchBar(){
+    let navigate = useNavigate();
+    const [answerBody, setAnswerBody] = useState("");
+    var link = "/SearchResults/" + answerBody;
+    
     const handleSubmit = (e) =>{
         
-        
-        axios.put('/Answers' , {
-            'answerBody' : answerBody,
-            'postId' : props.postId
-        }).then(res => {
-            console.log(res);
-        });
-
-        
-
-
+        e.preventDefault();
+        navigate(link);
     }
-    
 
     
-    
+
     return (
         <div>
-            <h1>creating da answers</h1>
+            <h1> Search for a Question! </h1>
             <form onSubmit = {handleSubmit}>
                 <label>
-                    AnswerBody
                     <input 
                     type="text"
                     value = {answerBody}
                     onChange = {e => setAnswerBody(e.target.value)}
                     />
                 </label>
-                <input type="submit" value="Submit" />
+
+                
+                <input type="submit" value="Search" />
+                
             </form>
         </div>
         
     )
 }
-

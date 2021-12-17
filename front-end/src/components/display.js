@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import Card from './card';
 import CreateQuestion from './createQuestion';
-import styles from './questionDisplayStyle.module.css';
+import styles from './styling/questionDisplayStyle.module.css';
+import SearchBar from './searchbar';
 
 
 
@@ -20,7 +21,7 @@ class Display extends React.Component{
     
     componentDidMount(){
       // todo: figure out how to get a specific amount of elements to display
-      var numberOfElements = '18';
+      var numberOfElements = '180';
   
       axios.get('/Questions/' + (numberOfElements))
       .then(res => {
@@ -69,16 +70,25 @@ class Display extends React.Component{
   
       
       return(
-        <div className= {styles.questionDisplay}>
-          <h1 className={styles.titleStyle}>ASKCOMETS</h1>
-  
-  
-          {this.getCardArray()}
-          {/* <CreateQuestion /> */}
-          
-  
+        <div className = {styles.pageStyle}>
+          <div className = {styles.topStyle}>
+            <h1 className={styles.titleStyle}>ASKCOMETS</h1>
+            <div className={styles.searchBoxStyle}>
+              <SearchBar/>
+            </div>
+            
+          </div>
+
+          <div className= {styles.questionDisplay}>
+            
+    
+    
+            {this.getCardArray()}
+            {/* <CreateQuestion /> */}
+            
+    
+          </div>
         </div>
-        
         
       )
     }
